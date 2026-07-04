@@ -29,38 +29,38 @@ Sequential Thinking 是一个纯 Python 的 MCP 服务，为 AI 助手提供结�
 
 ### 功能对比矩阵
 
-| 功能 | [MCP官方](https://github.com/modelcontextprotocol/servers) (TS) | [bpradana](https://github.com/bpradana/sequentialthinking) (Go) | [spences10](https://github.com/spences10/mcp-sequentialthinking-tools) (TS) | [arben-adm](https://github.com/arben-adm/mcp-sequential-thinking) (Python) | [ad](https://github.com/ad/sequentialthinking) (Go) | [recallnet](https://github.com/recallnet/sequential-thinking-recall) (TS) | **本项目** |
-|:------|:---:|:----:|:-----:|:-----:|:--:|:-------:|:--------:|
-| **工具数** | 1 | 11 | 3 | 5 | 1 | 1 | **26** |
-| **语言** | TypeScript | Go | TypeScript | Python | Go | TypeScript | **Python** |
-| **持久化** | ❌ 内存 | ❌ 内存 | ✅ 按 session | ✅ JSON 文件 | ❌ 内存 | ❌ 内存 | **✅ SQLite WAL** |
-| **数据库表** | — | — | — | — | — | — | **✅ 5 表 + FK** |
-| **FTS5 全文搜索** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **LLM 集成** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅ DeepSeek + MoA** |
-| **双引擎降级** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅ 自动** |
-| **质量评估** | ❌ | ✅ 基础 | ❌ | ❌ | ❌ | ❌ | **✅ 5 维 + 交叉验证** |
-| **偏见检测** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ 5 种 |
-| **矛盾检测** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅ 双重** |
-| **假设追踪** | ❌ | ❌ | ❌ | ✅ axioms | ❌ | ❌ | **✅ 完整 CRUD** |
-| **修订标记** | ✅ isRevision | ❌ | ✅ is_revision | ❌ | ✅ | ❌ | **✅ is_revision** |
-| **分支推理** | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
-| **自动完成** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **模板** | ❌ | 7 | ❌ | ❌ | ❌ | ❌ | **✅ 9 种** |
-| **Self-MoA** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅ 3 轮投票** |
-| **Iterative-MoA** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅ 双模型迭代** |
-| **MCP Resources** | ❌ | 3 | ❌ | ❌ | ❌ | ❌ | **✅ 2 个** |
-| **MCP Prompts** | ❌ | 3 | 1 | ❌ | ❌ | ❌ | **✅ 3 个** |
-| **自动标签** | ❌ | ❌ | ❌ | ✅ tags | ❌ | ❌ | ✅ |
-| **导入/导出** | ❌ | 导出 | ❌ | ✅ 导入+导出 | ❌ | ❌ | 导出 (Markdown/JSON) |
-| **Mermaid 可视化** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | **✅** |
-| **回放** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **安全扫描** | ❌ | ❌ | ✅ prompt injection | ❌ | ❌ | ✅ key redact | ❌ |
-| **链上存储** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Recall | ❌ |
-| **传输** | stdio | HTTP+stdio | stdio | stdio | stdio+SSE+HTTP | stdio | **HTTP+stdio** |
-| **Web 面板** | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **Docker** | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **单元测试** | ✅ | ❌ | ✅ vitest | ✅ pytest | ✅ | ❌ | **✅ 192 个** |
-| **包管理** | npm | Go mod | pnpm | uv | Go mod | npm | **uv** |
+| 功能 | **本项目** | [MCP官方](https://github.com/modelcontextprotocol/servers) (TS) | [bpradana](https://github.com/bpradana/sequentialthinking) (Go) | [spences10](https://github.com/spences10/mcp-sequentialthinking-tools) (TS) | [ad](https://github.com/ad/sequentialthinking) (Go) | [recallnet](https://github.com/recallnet/sequential-thinking-recall) (TS) |
+|:------|:--------:|:---:|:----:|:-----:|:--:|:-------:|
+| **工具数** | **26** | 1 | 11 | 3 | 1 | 1 |
+| **语言** | **Python** | TypeScript | Go | TypeScript | Go | TypeScript |
+| **持久化** | **✅ SQLite WAL** | ❌ 内存 | ❌ 内存 | ✅ 按 session | ❌ 内存 | ❌ 内存 |
+| **数据库表** | **✅ 5 表 + FK** | — | — | — | — | — |
+| **FTS5 全文搜索** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **LLM 集成** | **✅ DeepSeek + MoA** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **双引擎降级** | **✅ 自动** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **质量评估** | **✅ 5 维 + 交叉验证** | ❌ | ✅ 基础 | ❌ | ❌ | ❌ |
+| **偏见检测** | ✅ 5 种 | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **矛盾检测** | **✅ 双重** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **假设追踪** | **✅ 完整 CRUD** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **修订标记** | **✅ is_revision** | ✅ isRevision | ❌ | ✅ is_revision | ✅ | ❌ |
+| **分支推理** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **自动完成** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **模板** | **✅ 9 种** | ❌ | 7 | ❌ | ❌ | ❌ |
+| **Self-MoA** | **✅ 3 轮投票** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Iterative-MoA** | **✅ 双模型迭代** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **MCP Resources** | **✅ 2 个** | ❌ | 3 | ❌ | ❌ | ❌ |
+| **MCP Prompts** | **✅ 3 个** | ❌ | 3 | 1 | ❌ | ❌ |
+| **自动标签** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **导入/导出** | 导出 (Markdown/JSON) | ❌ | 导出 | ❌ | ❌ | ❌ |
+| **Mermaid 可视化** | **✅** | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **回放** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **安全扫描** | ❌ | ❌ | ❌ | ✅ prompt injection | ❌ | ✅ key redact |
+| **链上存储** | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ Recall |
+| **传输** | **HTTP+stdio** | stdio | HTTP+stdio | stdio | stdio+SSE+HTTP | stdio |
+| **Web 面板** | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| **Docker** | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **单元测试** | **✅ 192 个** | ✅ | ❌ | ✅ vitest | ✅ | ❌ |
+| **包管理** | **uv** | npm | Go mod | pnpm | Go mod | npm |
 
 ### 性能对比
 
