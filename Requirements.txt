@@ -1,0 +1,22 @@
+# =============================================================================
+# Sequential Thinking MCP — Python 依赖清单
+# =============================================================================
+# 文件路径: Requirements.txt（位于 GitHubSrc 根目录）
+# 原作者: 小逸
+# 官方仓库: https://github.com/LseKit/SequentialThinking
+#
+# 安装命令: uv pip install -r Requirements.txt
+# =============================================================================
+
+# FastMCP — MCP 协议服务框架（Streamable HTTP + stdio 传输）
+fastmcp>=2.0.0
+
+# aiosqlite — 异步 SQLite 驱动
+aiosqlite>=0.19.0
+
+# httpx — 异步 HTTP 客户端（LLM API 调用）
+httpx>=0.27.0
+
+# python-dotenv — .env 文件加载
+python-dotenv>=1.0.0
+jieba>=0.42

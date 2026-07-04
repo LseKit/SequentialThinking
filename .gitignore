@@ -1,0 +1,45 @@
+# =============================================================================
+# Sequential Thinking MCP — Git 忽略规则
+# 文件路径: .gitignore（位于 GitHubSrc 根目录）
+# 原作者: 小逸
+# =============================================================================
+
+# ── 敏感凭据（不要提交 API Key）──
+.env
+
+# ── UV 虚拟环境 ──
+SeqThinkVenV/
+venv/
+env/
+.venv/
+
+# ── Python 字节码缓存 ──
+__pycache__/
+*.pyc
+*.pyo
+
+# ── pytest 缓存 ──
+.pytest_cache/
+PytestCache/
+
+# ── 数据库文件（运行时自动生成）──
+*.db
+*.db-shm
+*.db-wal
+
+# ── 日志文件（PM2 运行时生成）──
+Logs/
+*.log
+
+# ── IDE / 编辑器 ──
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── 备份文件 ──
+*.backup-*
+
+# ── 操作系统 ──
+.DS_Store
+Thumbs.db
