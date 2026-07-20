@@ -2,7 +2,7 @@
 
 # 🧠 Sequential Thinking MCP
 
-**当 151,535 人/周在使用的 MCP 工具只有 1 个函数——这里提供了 26 个**
+**让 AI 在推理时拥有结构化思维——26 个工具，覆盖从拆解到验证的完整思维链**
 
 [![PyPI](https://img.shields.io/pypi/v/LseKit-SequentialThinking?color=2563eb&label=PyPI)](https://pypi.org/project/LseKit-SequentialThinking/)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://python.org)
@@ -15,58 +15,51 @@
 
 ---
 
-## 📊 功能对比矩阵
+## 📊 功能对比
 
-| 能力 | [官方版](https://www.npmjs.com/package/@modelcontextprotocol/server-sequential-thinking)<br><sub>TypeScript · 151K周下载</sub> | [arben-adm](https://pypi.org/project/mcp-sequential-thinking/)<br><sub>Python · 5阶段</sub> | [ad/sequentialthinking](https://github.com/ad/sequentialthinking)<br><sub>Go · 3传输模式</sub> | [**LseKit**](https://github.com/LseKit/SequentialThinking) 👑<br><sub>Python · 5,400行</sub> |
+以下是 Sequential Thinking 的几个主要实现。官方版是简洁的参考实现，各自在此基础上做了不同方向的扩展。
+
+| 功能 | [MCP 官方版](https://www.npmjs.com/package/@modelcontextprotocol/server-sequential-thinking)<br><sub>TypeScript · npm 151K/周</sub> | [arben-adm](https://pypi.org/project/mcp-sequential-thinking/)<br><sub>Python · PyPI</sub> | [ad/sequentialthinking](https://github.com/ad/sequentialthinking)<br><sub>Go · 3传输模式</sub> | [LseKit](https://github.com/LseKit/SequentialThinking)<br><sub>Python · PyPI</sub> |
 |------|:---:|:---:|:---:|:---:|
-| **MCP 工具数** | 1 | 5 阶段 | 1 | **26** |
-| **代码规模** | ~200 行 | ~800 行 | ~1,000 行 | **~5,400 行** |
-| **AI 自动推理** | ❌ 手动录入每步 | ❌ 手动录入 | ❌ 手动录入 | ✅ **LLM 引擎自动推进** |
-| **Self-MoA 并行推理** | ❌ | ❌ | ❌ | ✅ **温度采样多路并行** |
-| **Iterative-MoA 迭代推理** | ❌ | ❌ | ❌ | ✅ **每轮逼近更优解** |
-| **中文原生支持** | ❌ 仅英文 | ❌ 仅英文 | ❌ 仅英文 | ✅ **jieba 分词 + FTS5** |
-| **思考持久化存储** | ❌ 无状态 | ❌ 无状态 | ❌ 无状态 | ✅ **SQLite 全文检索** |
-| **质量评分与验证** | ❌ | ❌ | ❌ | ✅ **5 维自动评估** |
-| **逻辑谬误检测** | ❌ | ❌ | ❌ | ✅ **8 种逻辑谬误 + 8 种偏见** |
-| **可视化思维链** | ❌ | ❌ | ❌ | ✅ **Mermaid 流程图** |
-| **思维推演回放** | ❌ | ❌ | ❌ | ✅ **逐步审计回放** |
-| **多分支推理** | ❌ | ❌ | ❌ | ✅ **分支创建 + 合并** |
-| **会话对比分析** | ❌ | ❌ | ❌ | ✅ **Diff 两场推理** |
-| **MCP Resources** | 0 | 0 | 0 | **2（配置 + 模板）** |
-| **MCP Prompts** | 0 | 0 | 0 | **3（分解/批判/综合）** |
-| **单元测试** | 0 | 少量 | 未知 | **192 个** |
-| **PyPI 发布** | ❌（npm only） | ✅ | ❌ | ✅ |
-| **安装方式** | `npx` | `uvx` / `pip` | 手动编译 | `uvx` / `pip` |
+| **MCP 工具数** | 1 | 5 | 1 | **26** |
+| **代码规模** | ~200 行 | ~800 行 | ~1,000 行 | ~5,400 行 |
+| **AI 自动推进推理** | — | — | — | ✅ LLM 引擎驱动 |
+| **并行多路推理** | — | — | — | ✅ Self-MoA |
+| **迭代深度推理** | — | — | — | ✅ Iterative-MoA |
+| **中文原生支持** | — | — | — | ✅ jieba + FTS5 |
+| **思考持久化** | — | — | — | ✅ SQLite FTS5 |
+| **质量评分** | — | — | — | ✅ 5 维评估 |
+| **逻辑检查** | — | — | — | ✅ 谬误 + 偏见检测 |
+| **可视化思维** | — | — | — | ✅ Mermaid 流程图 |
+| **推理回放** | — | — | — | ✅ 逐步审计 |
+| **多分支推理** | — | — | — | ✅ 分支 + 合并 |
+| **会话对比** | — | — | — | ✅ 跨会话 Diff |
+| **MCP Resources** | — | — | — | ✅ 2 个 |
+| **MCP Prompts** | — | — | — | ✅ 3 个 |
+| **单元测试** | — | 少量 | — | 192 个 |
+| **Python 包发布** | — | ✅ PyPI | — | ✅ PyPI |
 
-> 「不是在改进官方版。是从零重构，实现了完全不同的架构和理念。官方版是草稿纸，这个是 AI 分析团队。」
+> 官方版是一个简洁的参考实现，1 个工具刚好展示 MCP 协议的基础用法。这个项目在此基础上扩展了推理引擎、持久化存储、中文支持和质量控制，适合有更复杂推理需求的场景。如果你的需求比较简单，官方版完全够用。
 
 ---
 
-## 🎯 解决的真问题
+## 🎯 这些功能解决了什么问题
 
-### ① AI 不会「质疑自己」
+### ① 推理缺少自我审查
 
-LLM 生成推理看起来很合理——但它不会主动检查：
-- 这个结论有逻辑漏洞吗？
-- 隐含假设是什么？
-- 有没有被确认偏见影响？
+LLM 的推理看起来很流畅，但每一步的结论不一定经得起推敲。26 个工具中内置了逻辑检测、矛盾识别、偏见筛查和假设提取——不是为了让 AI 推理更"厉害"，而是让推理结果更可靠。
 
-→ `validate_logic` · `detect_contradictions` · `detect_biases` · `extract_assumptions` 正是为此设计
+### ② 思考过程没有留存
 
-### ② 思考完就丢了
+有时候一个问题推演了很久，下次遇到类似的还得从头来。SQLite FTS5 全文索引记录了所有思考过程，可以随时搜索、回放、对比不同会话的推理路径。
 
-官方版用完即忘。这个版 SQLite FTS5 全文检索引擎——索引所有历史思考，相似问题自动召回，省去重复推演。支持 `search_sessions` 按关键词搜索、`compare_sessions` 多会话对比。
+### ③ 中文场景支持不足
 
-### ③ 中文场景被遗忘
+英文分词在中文上效果不佳。这个项目集成了 jieba 分词和 FTS5 中文全文检索，对中文问题的理解和检索更准确。
 
-官方版纯英文，中文分词完全失效。这个版 jieba 分词 + FTS5 索引端和查询端双对齐——「产品定价策略应该考虑用户画像」准确分词、精准检索。不是"支持中文"，是"原生为中文设计"。
+### ④ 单一推理路径的局限
 
-### ④ 只有一条推理路径
-
-官方版单线程思考，无法探索替代方案。这个版：
-- **Self-MoA**：温度采样 → 多路径并行推理 → 交叉验证合并
-- **Iterative-MoA**：多轮迭代 → 每轮逼近更优解 → 逐步收敛
-- `branch_thinking` 创建并行分支 + `merge_insights` 合并最优结果
+一个问题往往有多种思考角度。Self-MoA 用温度采样并行生成多条路径后投票汇聚，Iterative-MoA 通过多轮迭代逐步优化——它们是不同场景下的两种互补策略。
 
 ---
 
@@ -87,21 +80,21 @@ LLM 生成推理看起来很合理——但它不会主动检查：
 ```
 
 ```bash
-# 或者 pip
+# 或 pip 安装
 pip install LseKit-SequentialThinking && lseqthink
 ```
 
-重启 MCP 客户端，AI 拥有 **26 工具 + 3 Prompt + 2 Resource**。
+重启 MCP 客户端即可使用。
 
 ### 各客户端配置
 
-| 客户端 | 怎么配 |
+| 客户端 | 配置方式 |
 |--------|--------|
-| **Claude Desktop** | `claude_desktop_config.json` → `mcpServers` 加入上方 JSON |
-| **Cherry Studio** | 设置 → MCP 服务器 → 命令填 `uvx` 参数填 `--from LseKit-SequentialThinking lseqthink` |
-| **Cursor** | `.cursor/mcp.json` → 同上 JSON |
-| **Claude Code CLI** | `claude mcp add seqthink -- uvx --from LseKit-SequentialThinking lseqthink` |
-| **VS Code (Cline)** | `mcp.json` → 同上 |
+| Claude Desktop | `claude_desktop_config.json` → `mcpServers` 加入上方 JSON |
+| Cherry Studio | 设置 → MCP 服务器 → 命令填 `uvx` 参数填 `--from LseKit-SequentialThinking lseqthink` |
+| Cursor | `.cursor/mcp.json` → 同上 JSON |
+| Claude Code CLI | `claude mcp add seqthink -- uvx --from LseKit-SequentialThinking lseqthink` |
+| VS Code (Cline) | `mcp.json` → 同上 |
 
 ---
 
@@ -109,8 +102,8 @@ pip install LseKit-SequentialThinking && lseqthink
 
 ### 会话管理（8 个）
 
-| 工具 | 做什么 |
-|------|--------|
+| 工具 | 说明 |
+|------|------|
 | `start_thinking` | 创建思维会话，支持 9 种模板，返回复杂度评估 |
 | `add_step` | 添加一个思考步骤 |
 | `update_step` | 修改已有步骤 |
@@ -118,69 +111,63 @@ pip install LseKit-SequentialThinking && lseqthink
 | `branch_thinking` | 从指定步骤创建替代推理分支 |
 | `merge_insights` | 合并多个推理分支的洞察 |
 | `complete_session` | 标记会话完成，触发结论生成 |
-| `delete_session` | 删除会话及所有关联数据 |
+| `delete_session` | 删除会话及关联数据 |
 
 ### 增强分析（11 个）
 
-| 工具 | 做什么 |
-|------|--------|
+| 工具 | 说明 |
+|------|------|
 | `compare_sessions` | 对比两个会话的推理路径异同 |
-| `suggest_next` | 基于当前状态推荐 3 个下一步方向 |
-| `rewrite_query` | LLM 自动优化问题表述 |
-| `visualize_thinking` | 导出 Mermaid 流程图，可视化推理路径和分支 |
-| `replay_thinking` | 逐步回放推理过程，用于教学和审计 |
-| `auto_tag` | 根据会话内容自动生成标签 |
-| `moa_analyze` | Self-MoA 多智能体分析：3 轮独立采样后投票综合 |
-| `add_connection` | 建立步骤之间的因果关系 |
-| `detect_contradictions` | 检测推理链中的逻辑矛盾 |
-| `extract_assumptions` | 提取推理过程中的隐含假设 |
+| `suggest_next` | 基于当前状态推荐下一步方向 |
+| `rewrite_query` | LLM 优化问题表述 |
+| `visualize_thinking` | 导出 Mermaid 流程图 |
+| `replay_thinking` | 逐步回放推理过程 |
+| `auto_tag` | 根据内容自动生成标签 |
+| `moa_analyze` | Self-MoA 多智能体分析 |
+| `add_connection` | 建立步骤间因果关系 |
+| `detect_contradictions` | 检测推理链中的矛盾 |
+| `extract_assumptions` | 提取推理中的隐含假设 |
 | `update_tags` | 手动更新会话标签 |
 
 ### 质量控制（3 个）
 
-| 工具 | 做什么 |
-|------|--------|
-| `validate_logic` | 检测 8 种逻辑谬误（无支撑结论、未验证假设等） |
-| `evaluate_quality` | 5 维质量评估（一致性 / 完整性 / 严谨性 / 创新性 / 可操作性） |
-| `detect_biases` | 检测 8 种认知偏见（确认偏见、锚定效应、可得性启发等） |
+| 工具 | 说明 |
+|------|------|
+| `validate_logic` | 检测逻辑谬误 |
+| `evaluate_quality` | 5 维质量评估 |
+| `detect_biases` | 检测认知偏见 |
 
 ### 管理与数据（4 个）
 
-| 工具 | 做什么 |
-|------|--------|
-| `export_session` | 导出会话为 Markdown / JSON / Text |
-| `list_sessions` | 列出所有会话，按状态/标签过滤 |
-| `search_sessions` | 按关键词全文搜索历史会话 |
-| `get_metrics` | 获取使用统计指标（day / week / month / all） |
+| 工具 | 说明 |
+|------|------|
+| `export_session` | 导出 Markdown / JSON / Text |
+| `list_sessions` | 按状态/标签过滤会话列表 |
+| `search_sessions` | 全文搜索历史会话 |
+| `get_metrics` | 使用统计指标 |
 
 ---
 
-## 🚀 双 MoA 多智能体推理
+## 🚀 双 MoA 推理引擎
 
-有别于所有竞品的单线思考——这是唯一的**双引擎并行推理架构**。
+| 模式 | 原理 | 适合场景 |
+|------|------|---------|
+| **Self‑MoA** | 同模型多温度采样 → 并行生成多条路径 → 投票汇聚最优结果 | 开放性创意、多角度分析 |
+| **Iterative‑MoA** | 多轮迭代双模型调用 → 每轮优化上一轮结果 → 逐步逼近更优解 | 精确推理、方案优化 |
 
-### 模式选择速查
-
-| 模式 | 原理 | 适合 | 典型场景 |
-|------|------|------|---------|
-| **Self‑MoA** | 单模型多温度采样 → 并行推理 → 投票汇聚 | 开放创意 · 多角度 | 方案评估、创意发散 |
-| **Iterative‑MoA** | 多轮迭代双模型 → 每轮优化 → 逐步逼近 | 精确推理 · 收敛 | 代码审查、策略分析 |
-
-调用 `moa_analyze` 即可启动 MoA 多智能体分析，3 轮独立 LLM 采样后投票综合。
+通过 `moa_analyze` 工具调用，3 轮独立 LLM 采样后投票综合。
 
 ---
 
 ## 📝 MCP Prompt & 📦 MCP Resource
 
-接入本服务器后，这些内容会自动出现在客户端的 Prompt/Resource 菜单中。
-
-| 类型 | 名称 | 做什么 |
-|------|------|--------|
-| Prompt | `problem_breakdown` | 引导 AI 将复杂问题拆分为 3-5 个子问题 |
-| Prompt | `critical_analysis` | 引导 AI 从逻辑漏洞、隐含假设等角度批判推理结论 |
-| Prompt | `synthesis_prompt` | 引导 AI 将多个洞察综合为统一结论，标注置信度 |
-| Resource | `config://server` | 服务器元数据（名称、版本、工具数） |
-| Resource | `thinking://templates/catalog` | 全部 9 种思维模板的目录 |
+| 类型 | 名称 | 说明 |
+|------|------|------|
+| Prompt | `problem_breakdown` | 引导 AI 将复杂问题拆分为子问题 |
+| Prompt | `critical_analysis` | 引导 AI 批判性审视推理结论 |
+| Prompt | `synthesis_prompt` | 引导 AI 将多个洞察综合为统一结论 |
+| Resource | `config://server` | 服务器元数据 |
+| Resource | `thinking://templates/catalog` | 9 种思维模板目录 |
 
 ---
 
@@ -201,7 +188,7 @@ pip install LseKit-SequentialThinking && lseqthink
 
 | 变量 | 用途 | 默认值 |
 |------|------|--------|
-| `DEEPSEEK_API_KEY` | DeepSeek API Key（LLM 引擎必填） | *必填* |
+| `DEEPSEEK_API_KEY` | DeepSeek API Key（LLM 引擎需要） | *必填* |
 | `ST_TRANSPORT` | 传输模式：`http` 或 `stdio` | `http` |
 | `ST_PORT` | HTTP 监听端口 | `20010` |
 | `ST_DB_PATH` | SQLite 数据库路径 | `~/.seqthink/thoughts.db` |
